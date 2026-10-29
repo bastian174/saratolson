@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sara Tolson - Musik Coaching, Kurse und Soul Songs">
+    <title>Sara Tolson | Musik Coaching & Creative Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Crimson+Text:ital@0;1&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2e5f6f;
+            --primary-dark: #1f3f4f;
+            --accent: #d4a5a5;
+            --accent-light: #e8c9c9;
+            --light-bg: #f8f7f5;
+            --light-bg-alt: #f2f0ed;
+            --text-dark: #1a1a1a;
+            --text-light: #5a5a5a;
+            --text-muted: #888888;
+            --border: #e0dfd9;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(30, 63, 79, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 16px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            opacity: 0.8;
+        }
+
+        nav a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            margin-top: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1f3f4f 0%, #2e5f6f 100%);
+        }
+
+        .hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(30,63,79,0.3) 0%, rgba(31,63,79,0.7) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-label {
+            display: inline-block;
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(48px, 10vw, 96px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .hero-title em {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 40px;
+            line-height: 1.8;
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.6s forwards;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.8s forwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            padding: 14px 32px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: 2px solid;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-radius: 4px;
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--text-dark);
+            border-color: var(--accent);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-light);
+            border-color: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(212, 165, 165, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255,255,255,0.3);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 120px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 700;
+            margin-bottom: 60px;
+            line-height: 1.2;
+            color: var(--text-dark);
+            opacity: 0;
+        }
+
+        h2 em {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 16px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .about-images {
+            display: grid;
+            grid-template-rows: 1fr auto;
+            gap: 20px;
+            perspective: 1000px;
+        }
+
+        .about-image-main {
+            width: 100%;
+            height: 400px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.3);
+            font-size: 120px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px) rotateX(10deg);
+        }
+
+        .about-image-sub {
+            width: 100%;
+            height: 120px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.3);
+            font-size: 80px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px) rotateX(-10deg);
+        }
+
+        /* ===== SERVICES ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+
+        .service-card {
+            padding: 50px 40px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            background: var(--white);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-align: center;
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            opacity: 0;
+            transform: translateY(40px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-20px) rotateX(5deg) rotateY(-3deg);
+            box-shadow: 0 50px 80px rgba(46, 95, 111, 0.25);
+        }
+
+        .service-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+
+        /* ===== FEATURES ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .feature-check {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .feature-item h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        /* ===== PRICING ===== */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+
+        .price-card {
+            padding: 45px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            background: var(--white);
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-align: center;
+            min-height: 520px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            opacity: 0;
+            transform: translateY(40px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .price-card.featured {
+            border: 3px solid var(--primary);
+            transform: scale(1.08) translateY(40px);
+            box-shadow: 0 40px 80px rgba(46, 95, 111, 0.2);
+        }
+
+        .price-card.featured::before {
+            content: '★ BELIEBT';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--white);
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .price-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 40px 80px rgba(46, 95, 111, 0.15);
+        }
+
+        .price-card.featured:hover {
+            transform: scale(1.08) translateY(-15px);
+        }
+
+        .price-card h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .price-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .price-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 30px 0;
+        }
+
+        .price-amount small {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 35px 0;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .price-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .price-features li:last-child {
+            border-bottom: none;
+        }
+
+        .price-features li::before {
+            content: '✓ ';
+            color: var(--primary);
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            text-align: center;
+            border-radius: 12px;
+            padding: 80px 60px;
+            margin: 100px 0;
+            max-width: 1200px;
+            opacity: 0;
+            transform: translateY(40px);
+            background-image:
+                linear-gradient(135deg, rgba(30, 63, 79, 0.85) 0%, rgba(31, 63, 79, 0.85) 100%),
+                url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABaAFoDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWm5ybnJ2eoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/9k=');
+            background-size: cover;
+            background-position: center right;
+            background-attachment: fixed;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.95);
+            max-width: 600px;
+            margin: 30px auto 40px;
+        }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-section {
+            max-width: 700px;
+            margin: 60px auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            opacity: 0;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-dark);
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(46, 95, 111, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: var(--white);
+            border: 2px solid var(--primary);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-family: 'Poppins', sans-serif;
+            opacity: 0;
+        }
+
+        .form-submit:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(46, 95, 111, 0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--text-muted);
+            text-align: center;
+            padding: 50px 60px;
+            border-top: 2px solid var(--border);
+        }
+
+        footer p {
+            font-size: 13px;
+            margin: 0;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent-light);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 10px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .price-card.featured {
+                transform: scale(1);
+            }
+
+            .cta-section {
+                padding: 50px 20px;
+            }
+
+            h2 {
+                font-size: clamp(28px, 5vw, 48px);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo"><img src="data:image/png;base64,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" alt="Sara Tolson"></div>
+        <nav>
+            <a href="#musik">Musik</a>
+            <a href="#kurse">Kurse</a>
+            <a href="#soul">Soul Song</a>
+            <a href="#preise">Preise</a>
+            <a href="#kontakt">Kontakt</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-video-container">
+            <video class="hero-video" autoplay muted loop playsinline></video>
+        </div>
+        <div class="hero-content">
+            <div class="hero-label">🎵 Musik • Coaching • Soul</div>
+            <h1 class="hero-title">Deine Musik. <em>In Bewegung.</em></h1>
+            <p class="hero-subtitle">Songwriting, professionelle Kurse & persönliche Soul-Songs, die dein Leben verändern</p>
+            <div class="hero-buttons">
+                <a href="#kurse" class="btn btn-primary">Kurse Erkunden →</a>
+                <a href="#kontakt" class="btn btn-secondary">Kontakt</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="uber" style="background-color: var(--light-bg-alt);">
+        <h2>Wer ich bin. <em>Was ich tue.</em></h2>
+        <div class="about-container">
+            <div class="about-text">
+                <h3>Multi-Instrumentalistin • Songwriterin • Coach</h3>
+                <p>Ich bin Sara Tolson – Künstlerin, Pädagogin und Creative Coach mit tiefer Leidenschaft für musikalische Entwicklung und künstlerisches Wachstum.</p>
+                <p>Mit meinen spezialisierten Kursen in Hip Hop, Musik- & Tanztheater, Rhythm & Groove, Gesang und Instrumentalspiel begleite ich dich auf deinem persönlichen künstlerischen Weg. Jedes Programm ist individuell zugeschnitten.</p>
+                <p><strong>Neben meiner Passion für Musikvermittlung</strong> schreibe ich, produziere und perme eigene Songs – von Electronic über Indie bis Pop.</p>
+                <p style="margin-bottom: 30px; margin-top: 30px;"><strong>Mein Signature-Service:</strong> <em>YOUR SOUL SONG©</em> – Ich komponiere dein persönliches Lied, deinen einzigartigen Sound, basierend auf deiner Geschichte und deinem Potenzial.</p>
+                <p style="font-size: 16px; font-weight: 600; color: var(--primary);">✨ Let your soul shine. ✨</p>
+            </div>
+            <div class="about-images">
+                <div class="about-image-main"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCADAA8ADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWm5ybnJ2eoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/9k=" alt="Sara with Guitar" style="width:100%; height:100%; object-fit:cover; border-radius:8px;"></div>
+                <div class="about-image-sub"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABaAFoDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWm5ybnJ2eoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/9k=" alt="Sara Contact" style="width:100%; height:100%; object-fit:cover; border-radius:8px;"></div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="musik">
+        <h2>Meine Angebote. <em>Für dich.</em></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div>
+                    <span class="service-icon">🎵</span>
+                    <h3>Meine Musik</h3>
+                    <p>Songwriting, Produktion & Performance. Meine Musik ist auf allen Major-Plattformen verfügbar: Spotify, Apple Music, YouTube – und live in deiner Stadt.</p>
+                </div>
+                <a href="#" class="btn btn-primary">Hören →</a>
+            </div>
+
+            <div class="service-card">
+                <div>
+                    <span class="service-icon">🎤</span>
+                    <h3>Kurse & Workshops</h3>
+                    <p>Spezialisierte Trainings in Hip Hop, Musik- & Tanztheater, Rhythm & Groove, Gesang & Instrumentalspiel. Flex format: 1:1, Group oder Online.</p>
+                </div>
+                <a href="#kurse" class="btn btn-primary">Ansehen →</a>
+            </div>
+
+            <div class="service-card">
+                <div>
+                    <span class="service-icon">✨</span>
+                    <h3>YOUR SOUL SONG©</h3>
+                    <p>Dein persönliches Lied. Ich komponiere für dich ein maßgeschneidertes, einzigartiges Musikstück – dein Sound, deine Story, dein Potenzial.</p>
+                </div>
+                <a href="#soul" class="btn btn-primary">Mehr Info →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="kurse" style="background-color: var(--light-bg-alt);">
+        <h2>Das macht mich. <em>Unterschiedlich.</em></h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-check">✓</div>
+                <div>
+                    <h4>Persönliches Coaching</h4>
+                    <p>Keine Standard-Kurse. Jedes Programm ist auf deine Ziele und deinen Stil zugeschnitten.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-check">✓</div>
+                <div>
+                    <h4>Professionelle Ausbildung</h4>
+                    <p>Elementare Musik- & Tanzpädagogin mit jahrelanger internationaler Erfahrung.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-check">✓</div>
+                <div>
+                    <h4>Flexible Formate</h4>
+                    <p>Einzelunterricht, Workshops, Gruppen oder vollständig Online – wie es für dich passt.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-check">✓</div>
+                <div>
+                    <h4>Deine Musik-Identität</h4>
+                    <p>Gemeinsam entwickeln wir deine einzigartige Stimme, deinen Sound, dein künstlerisches Potenzial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="preise">
+        <h2>Meine Pakete. <em>Für jedes Budget.</em></h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div>
+                    <h3>Einzelkurs</h3>
+                    <p class="price-subtitle">60 Minuten 1:1 Coaching</p>
+                    <div class="price-amount">79<small>€</small></div>
+                    <ul class="price-features">
+                        <li>Persönliches 1:1 Coaching</li>
+                        <li>Flexible Zeiten & Orte</li>
+                        <li>Online oder vor Ort</li>
+                        <li>Detailliertes Feedback</li>
+                        <li>Flexibel buchbar</li>
+                    </ul>
+                </div>
+                <button class="btn btn-primary" style="width: 100%;">Jetzt Buchen →</button>
+            </div>
+
+            <div class="price-card featured">
+                <div>
+                    <h3>4er Paket</h3>
+                    <p class="price-subtitle">4 × 60 Min – Sparen Sie 60€</p>
+                    <div class="price-amount">259<small>€</small></div>
+                    <ul class="price-features">
+                        <li>4 Einzelstunden</li>
+                        <li>Fortschritt-Tracking</li>
+                        <li>Kostenlose Materialien</li>
+                        <li>Email-Support inklusive</li>
+                        <li>Priorisierte Buchung</li>
+                    </ul>
+                </div>
+                <button class="btn btn-primary" style="width: 100%;">Sichern →</button>
+            </div>
+
+            <div class="price-card">
+                <div>
+                    <h3>YOUR SOUL SONG©</h3>
+                    <p class="price-subtitle">Dein persönliches Kunstwerk</p>
+                    <div class="price-amount">199<small>€</small></div>
+                    <ul class="price-features">
+                        <li>Vollständig maßgeschneidert</li>
+                        <li>Studio-Qualität Produktion</li>
+                        <li>Basierend auf deiner Story</li>
+                        <li>Künstler-Credits inklusive</li>
+                        <li>Lebenslang Dein Song</li>
+                    </ul>
+                </div>
+                <button class="btn btn-secondary" style="width: 100%;">Anfragen →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="soul">
+        <div class="cta-section">
+            <h2>Lass deine Musik. <em>In Bewegung kommen.</em></h2>
+            <p>Ob professionelles Coaching, Musik-Kurse oder dein eigener Soul Song – ich unterstütze dich auf deinem künstlerischen Weg. Lass uns deine Musik zum Leben erwecken.</p>
+            <a href="#kontakt" class="btn btn-primary">Jetzt Kontakt Aufnehmen →</a>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="kontakt" style="background-color: var(--light-bg-alt);">
+        <h2 style="text-align: center;">Deine Nachricht. <em>Direkt zu mir.</em></h2>
+        <form class="contact-section" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <label for="name">Dein Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Deine E-Mail *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Deine Telefonnummer (optional)</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+
+            <div class="form-group">
+                <label for="paket">Welches Angebot interessiert dich?</label>
+                <select id="paket" name="paket" required>
+                    <option value="">-- Bitte wählen --</option>
+                    <option value="Einzelkurs">Einzelkurs (79€)</option>
+                    <option value="4er-paket">4er Paket (259€)</option>
+                    <option value="soul-song">YOUR SOUL SONG© (199€)</option>
+                    <option value="anfrage">Andere Anfrage</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Deine Nachricht *</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">Nachricht Senden →</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 Sara Tolson. Alle Rechte vorbehalten. |
+           <a href="#">Impressum</a> |
+           <a href="#">Datenschutz</a> |
+           <a href="#">AGB</a>
+        </p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // ===== VIDEO SETUP =====
+        const videoElement = document.querySelector('.hero-video');
+        videoElement.src = './hero-video.mp4';
+
+        // ===== SCROLL ANIMATIONS =====
+        gsap.utils.toArray('h2').forEach(element => {
+            gsap.to(element, {
+                opacity: 1,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        });
+
+        gsap.utils.toArray('.service-card').forEach((card, index) => {
+            gsap.to(card, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: index * 0.15,
+                scrollTrigger: {
+                    trigger: '.services-grid',
+                    start: 'top 75%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        });
+
+        gsap.utils.toArray('.price-card').forEach((card, index) => {
+            gsap.to(card, {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                delay: index * 0.15,
+                ease: 'back.out',
+                scrollTrigger: {
+                    trigger: '.pricing-grid',
+                    start: 'top 75%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        });
+
+        gsap.to('.cta-section', {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            scrollTrigger: {
+                trigger: '.cta-section',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        gsap.utils.toArray('.feature-item').forEach((item, index) => {
+            gsap.to(item, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: index * 0.1,
+                scrollTrigger: {
+                    trigger: '.features-grid',
+                    start: 'top 75%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        });
+
+        gsap.utils.toArray('.form-group').forEach((group, index) => {
+            gsap.to(group, {
+                opacity: 1,
+                duration: 0.5,
+                delay: index * 0.08,
+                scrollTrigger: {
+                    trigger: '.contact-section',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        });
+
+        gsap.to('.form-submit', {
+            opacity: 1,
+            duration: 0.6,
+            delay: 0.4,
+            scrollTrigger: {
+                trigger: '.form-submit',
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        // Parallax Images
+        gsap.to('.about-image-main', {
+            opacity: 1,
+            y: 0,
+            rotateX: 0,
+            duration: 0.8,
+            scrollTrigger: {
+                trigger: '.about-image-main',
+                start: 'top 75%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        gsap.to('.about-image-sub', {
+            opacity: 1,
+            y: 0,
+            rotateX: 0,
+            duration: 0.8,
+            delay: 0.15,
+            scrollTrigger: {
+                trigger: '.about-image-sub',
+                start: 'top 75%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        // About Parallax
+        gsap.to('.about-images', {
+            y: -50,
+            scrollTrigger: {
+                trigger: '.about-container',
+                start: 'top 50%',
+                end: 'bottom 50%',
+                scrub: 1
+            }
+        });
+
+        // ===== FORM HANDLING =====
+        function handleSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            alert(`Danke ${name}! Ich melde mich in Kürze bei dir. ✨🎵`);
+            e.target.reset();
+        }
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ===== ACTIVE NAV =====
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.opacity = '0.8';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.opacity = '1';
+                    link.style.color = 'var(--accent)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

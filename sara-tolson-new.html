@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sara Tolson | Music Coach & Creator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #2e5f6f;
+            --accent: #d4a5a5;
+            --light: #f8f7f5;
+            --dark: #1a1a1a;
+            --text: #333;
+        }
+        
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: rgba(30,63,79,0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+        }
+        
+        .logo img { height: 35px; }
+        
+        nav {
+            display: flex;
+            gap: 40px;
+        }
+        
+        nav a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover { color: var(--accent); }
+        
+        /* HERO */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, #1f3f4f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCADAA8ADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWm5ybnJ2eoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/9k=');
+            opacity: 0.1;
+            background-size: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(48px, 10vw, 80px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* BUTTONS */
+        .btn {
+            padding: 14px 32px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark);
+            border-color: var(--accent);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(212,165,165,0.4);
+            background: #e8c9c9;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* SECTIONS */
+        section {
+            padding: 120px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 5vw, 60px);
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+        
+        /* SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .service-card p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        /* PRICING */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .price-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            border: 2px solid #eee;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .price-card.featured {
+            border-color: var(--accent);
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(212,165,165,0.2);
+        }
+        
+        .price-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            color: var(--primary);
+            margin: 20px 0;
+            font-weight: 700;
+        }
+        
+        .price-amount small {
+            font-size: 18px;
+            color: #999;
+        }
+        
+        /* CONTACT */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #eee;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+        
+        .submit-btn:hover {
+            background: #1f3f4f;
+            transform: translateY(-3px);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: #999;
+            text-align: center;
+            padding: 50px 60px;
+        }
+        
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            nav { gap: 15px; }
+            section { padding: 60px 20px; }
+            .hero-buttons { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="data:image/png;base64,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" alt="ST"></div>
+        <nav>
+            <a href="#musik">Musik</a>
+            <a href="#kurse">Kurse</a>
+            <a href="#soul">Soul Songs</a>
+            <a href="#preise">Preise</a>
+            <a href="#kontakt">Kontakt</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Deine Musik.<br><span style="color: var(--accent);">In Bewegung.</span></h1>
+            <p>Professionelles Coaching, spezialisierte Kurse & maßgeschneiderte Soul Songs für deine kreative Entwicklung</p>
+            <div class="hero-buttons">
+                <a href="#kurse" class="btn btn-primary">Entdecken →</a>
+                <a href="#kontakt" class="btn btn-secondary">Kontakt</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="musik" style="background: white;">
+        <h2>Meine Leistungen</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>🎵 Meine Musik</h3>
+                <p>Songwriting, Produktion & Performances in allen Stilen: Electronic, Indie, Pop. Auf allen Major-Plattformen verfügbar.</p>
+                <a href="#" class="btn btn-primary" style="width: 100%;">Hören →</a>
+            </div>
+            <div class="service-card">
+                <h3>🎤 Kurse & Workshops</h3>
+                <p>Spezialisierte Trainings in Hip Hop, Musik- & Tanztheater, Rhythm & Groove, Gesang. 1:1, Gruppen oder Online.</p>
+                <a href="#kurse" class="btn btn-primary" style="width: 100%;">Ansehen →</a>
+            </div>
+            <div class="service-card">
+                <h3>✨ YOUR SOUL SONG©</h3>
+                <p>Dein persönliches Kunstwerk. Ich komponiere ein einzigartiges Lied, das deine Geschichte & Potenzial widerspiegelt.</p>
+                <a href="#soul" class="btn btn-primary" style="width: 100%;">Mehr Info →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="preise" style="background: var(--light);">
+        <h2>Meine Pakete</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Einzelkurs</h3>
+                <p style="color: #999;">60 Min 1:1 Coaching</p>
+                <div class="price-amount">79<small>€</small></div>
+                <a href="#kontakt" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Buchen →</a>
+            </div>
+            <div class="price-card featured">
+                <h3>4er Paket ★</h3>
+                <p style="color: #999;">4 × 60 Min – Sparen Sie 60€</p>
+                <div class="price-amount">259<small>€</small></div>
+                <a href="#kontakt" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Sichern →</a>
+            </div>
+            <div class="price-card">
+                <h3>YOUR SOUL SONG©</h3>
+                <p style="color: #999;">Dein persönliches Lied</p>
+                <div class="price-amount">199<small>€</small></div>
+                <a href="#kontakt" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Anfragen →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt" style="background: white;">
+        <h2>Kontakt</h2>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <label for="name">Dein Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-Mail *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Telefon (optional)</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="interesse">Was interessiert dich? *</label>
+                <select id="interesse" name="interesse" required>
+                    <option value="">-- Bitte wählen --</option>
+                    <option value="einzelkurs">Einzelkurs (79€)</option>
+                    <option value="4er-paket">4er Paket (259€)</option>
+                    <option value="soul-song">YOUR SOUL SONG© (199€)</option>
+                    <option value="anfrage">Sonstige Anfrage</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Deine Nachricht *</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Nachricht Senden →</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Sara Tolson | <a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
+    </footer>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('✓ Danke! Deine Nachricht wurde versendet. Ich melde mich schnellstmöglich.');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
