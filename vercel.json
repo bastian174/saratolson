@@ -1,6 +1,3 @@
 {
-  "name": "sara-tolson",
-  "public": true,
-  "buildCommand": "echo 'Static site'",
-  "outputDirectory": "."
+  "cleanUrls": true
 }
